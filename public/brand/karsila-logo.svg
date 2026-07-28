@@ -1,0 +1,6 @@
+<svg width="420" height="112" viewBox="0 0 420 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="8" width="96" height="96" rx="25" fill="#0B2944"/>
+  <path d="M38 32V80M38 56L76 32M38 56L76 80" stroke="#F7F3E8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="57" cy="56" r="7" fill="#E4C77D"/>
+  <text x="132" y="70" fill="#0B2944" font-family="Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="-3">Karsila</text>
+</svg>

@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Karsila
 
-## Getting Started
+Karsila is a multilingual marketplace for private airport transfers in
+Antalya, Türkiye. Travellers submit a route, verified local drivers send
+fixed-price offers, and the traveller chooses the preferred driver.
 
-First, run the development server:
+## Application areas
+
+- Public website: English, Russian and Turkish
+- Transfer request and status portal: English and Russian
+- Driver environment: Turkish
+- Admin environment: English
+
+## Technology
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS and shadcn/ui
+- Supabase Auth, Database and Storage
+
+## Local development
+
+Requirements:
+
+- Node.js 20 or newer
+- npm
+- Access to the Karsila Supabase project
+
+Create the local environment file:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Enter the three Supabase values in `.env.local`, then install and start:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Required environment variables
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Exposure | Purpose |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SUPABASE_URL` | Public | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Public | Browser-safe anonymous key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Private | Server-side registration and admin operations |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The service-role key must only be configured in the hosting environment. Never
+commit `.env.local` and never expose this key with a `NEXT_PUBLIC_` prefix.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Production checks
 
-## Deploy on Vercel
+Run these checks before every production deployment:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint
+npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Also verify:
+
+1. The public homepage works at `/en`, `/ru` and `/tr`.
+2. The request flow works at `/en/request` and `/ru/request`.
+3. A traveller can create a request and open the protected status link.
+4. An approved driver can sign in, view open requests and send one offer.
+5. The traveller can accept an offer.
+6. The assigned ride appears in the driver dashboard.
+7. An admin can review a pending driver application.
+
+## Vercel deployment
+
+1. Push the current repository to GitHub.
+2. Import the repository in Vercel as a Next.js project.
+3. Add all variables from `.env.example` under Production environment
+   variables.
+4. Deploy the production branch.
+5. Add `karsila.app` and `www.karsila.app` to the Vercel project.
+6. Copy the DNS records shown by Vercel into Dynadot.
+7. Choose `karsila.app` as the primary domain and redirect `www` to it.
+
+Do not change Dynadot DNS records until a successful Vercel preview deployment
+has been tested.
+
+## Supabase production settings
+
+After the production domain is active:
+
+1. Set the Supabase Site URL to `https://karsila.app`.
+2. Add `https://karsila.app/**` to the allowed redirect URLs.
+3. Keep `http://localhost:3000/**` as an allowed redirect URL for local
+   development.
+4. Confirm that the `driver-documents` bucket remains private.
+5. Confirm that all migrations in `supabase/migrations` have been applied.
+6. Never expose the service-role key in browser code, logs or screenshots.
+
+## Database migrations
+
+The production hardening migrations are stored in:
+
+```text
+supabase/migrations/
+```
+
+They cover atomic driver registration, driver-data RLS, ride/offer RLS and the
+admin driver-review workflow. Apply migrations in filename order and verify the
+security checks before deployment.
+
+## Brand
+
+The public brand assets are stored in:
+
+```text
+public/brand/
+```
+
+The canonical production URL is:
+
+```text
+https://karsila.app
+```
