@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 
 import { KarsilaLogo } from "@/components/brand/KarsilaLogo";
@@ -34,7 +35,17 @@ export function SiteHeader({
         </Link>
 
         <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
-          <PublicLocaleSwitcher locale={locale} />
+          <Suspense
+            fallback={
+              <span className="inline-flex rounded-xl border border-border/70 bg-background/80 p-1">
+                <span className="rounded-lg bg-[#0b2944] px-2.5 py-1.5 text-xs font-extrabold text-white">
+                  {locale.toUpperCase()}
+                </span>
+              </span>
+            }
+          >
+            <PublicLocaleSwitcher locale={locale} />
+          </Suspense>
 
           <Link href="/driver/login" className="hidden sm:block">
             <Button variant="outline" size="sm">
