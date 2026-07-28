@@ -85,6 +85,8 @@ export function KarsilaSocialImage() {
 
         <div
           style={{
+            display: "flex",
+            flexDirection: "column",
             fontSize: 61,
             fontWeight: 800,
             letterSpacing: "-0.055em",
