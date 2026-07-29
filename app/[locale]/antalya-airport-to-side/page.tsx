@@ -92,6 +92,13 @@ const copy = {
           "Explore the quick route to Lara’s city-side addresses, beach hotels and Kundu hotel zone.",
         cta: "View the Lara route",
       },
+      {
+        routePath: "/antalya-airport-to-kemer",
+        title: "Travelling west instead, to Kemer?",
+        description:
+          "Compare the cross-city route to Kemer’s mountain-backed coast, marina and nearby resort villages.",
+        cta: "View the Kemer route",
+      },
     ],
     finalTitle: "Start your time in Side with the long drive already arranged.",
     finalDescription:
@@ -176,6 +183,13 @@ const copy = {
           "Узнайте о коротком пути к городским адресам Лары, пляжным отелям и гостиничной зоне Кунду.",
         cta: "Посмотреть маршрут в Лару",
       },
+      {
+        routePath: "/antalya-airport-to-kemer",
+        title: "Вы едете в другую сторону, в Кемер?",
+        description:
+          "Сравните маршрут через Анталью к горному побережью Кемера, яхтенной гавани и курортным посёлкам.",
+        cta: "Посмотреть маршрут в Кемер",
+      },
     ],
     finalTitle: "Начните отдых в Сиде, заранее организовав долгую дорогу.",
     finalDescription:
@@ -259,6 +273,13 @@ const copy = {
         description:
           "Lara'nın şehir tarafındaki adresleri, sahil otelleri ve Kundu oteller bölgesine giden kısa rotayı keşfedin.",
         cta: "Lara rotasını görüntüle",
+      },
+      {
+        routePath: "/antalya-airport-to-kemer",
+        title: "Ters yöne, Kemer'e mi gidiyorsunuz?",
+        description:
+          "Antalya'yı geçerek Kemer'in dağ manzaralı sahili, marinası ve yakın tatil beldelerine ulaşan rotayı karşılaştırın.",
+        cta: "Kemer rotasını görüntüle",
       },
     ],
     finalTitle: "Side tatilinize uzun yolculuğu önceden planlayarak başlayın.",

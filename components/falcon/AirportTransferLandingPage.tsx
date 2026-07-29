@@ -58,7 +58,7 @@ export type AirportTransferLandingCopy = {
   faqTitle: string;
   faqs: [Faq, Faq, Faq];
   relatedLabel: string;
-  relatedRoutes: [RelatedRoute, RelatedRoute];
+  relatedRoutes: RelatedRoute[];
   finalTitle: string;
   finalDescription: string;
   footer: string;
@@ -281,7 +281,7 @@ export function AirportTransferLandingPage({
       <section className="px-5 pb-20 sm:px-6 md:pb-28 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <p className="falcon-section-label">{content.relatedLabel}</p>
-          <div className="mt-5 grid gap-5 md:grid-cols-2">
+          <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {content.relatedRoutes.map((relatedRoute) => (
               <article
                 key={relatedRoute.routePath}
