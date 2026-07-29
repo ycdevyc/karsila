@@ -700,7 +700,11 @@ export function PublicHomePage({
             {destinations.map((destination, index) => (
               <Link
                 key={destination.name}
-                href={requestHref}
+                href={
+                  index === 1
+                    ? publicPath(locale, "/antalya-airport-to-belek")
+                    : requestHref
+                }
                 className={`group relative min-h-[430px] overflow-hidden rounded-[2rem] border border-white/10 ${
                   index === 1 ? "md:translate-y-8" : ""
                 }`}
