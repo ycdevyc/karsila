@@ -77,10 +77,22 @@ const copy = {
       },
     ],
     relatedLabel: "Compare nearby destinations",
-    relatedTitle: "Travelling beyond Lara to Belek?",
-    relatedDescription:
-      "Explore the longer eastbound route from Antalya Airport to Belek’s resorts, golf hotels and accommodation areas.",
-    relatedCta: "View the Belek route",
+    relatedRoutes: [
+      {
+        routePath: "/antalya-airport-to-belek",
+        title: "Travelling beyond Lara to Belek?",
+        description:
+          "Explore the eastbound route from Antalya Airport to Belek’s resorts, golf hotels and accommodation areas.",
+        cta: "View the Belek route",
+      },
+      {
+        routePath: "/antalya-airport-to-side",
+        title: "Is your destination further along the coast in Side?",
+        description:
+          "Check the route to Side’s ancient centre, hotel zones and nearby Mediterranean beaches.",
+        cta: "View the Side route",
+      },
+    ],
     finalTitle: "Land in Antalya with your Lara ride already considered.",
     finalDescription:
       "Share your trip once, compare clear local offers and choose the driver and vehicle that suit your arrival.",
@@ -149,10 +161,22 @@ const copy = {
       },
     ],
     relatedLabel: "Сравните соседние направления",
-    relatedTitle: "После Лары вы направляетесь в Белек?",
-    relatedDescription:
-      "Посмотрите информацию о более длинном маршруте на восток — к курортам, гольф-отелям и другим районам Белека.",
-    relatedCta: "Посмотреть маршрут в Белек",
+    relatedRoutes: [
+      {
+        routePath: "/antalya-airport-to-belek",
+        title: "После Лары вы направляетесь в Белек?",
+        description:
+          "Посмотрите информацию о маршруте на восток — к курортам, гольф-отелям и другим районам Белека.",
+        cta: "Посмотреть маршрут в Белек",
+      },
+      {
+        routePath: "/antalya-airport-to-side",
+        title: "Ваш пункт назначения находится дальше, в Сиде?",
+        description:
+          "Узнайте о дороге к античному центру Сиде, гостиничным зонам и средиземноморским пляжам.",
+        cta: "Посмотреть маршрут в Сиде",
+      },
+    ],
     finalTitle: "Прилетайте в Анталью с понятным планом поездки в Лару.",
     finalDescription:
       "Один раз укажите детали, сравните предложения местных водителей и выберите подходящий автомобиль.",
@@ -221,10 +245,22 @@ const copy = {
       },
     ],
     relatedLabel: "Yakındaki rotaları karşılaştırın",
-    relatedTitle: "Lara'dan daha ileride Belek'e mi gidiyorsunuz?",
-    relatedDescription:
-      "Antalya Havalimanı'ndan Belek'in tatil köyleri, golf otelleri ve konaklama bölgelerine uzanan doğu rotasını inceleyin.",
-    relatedCta: "Belek rotasını görüntüle",
+    relatedRoutes: [
+      {
+        routePath: "/antalya-airport-to-belek",
+        title: "Lara'dan daha ileride Belek'e mi gidiyorsunuz?",
+        description:
+          "Antalya Havalimanı'ndan Belek'in tatil köyleri, golf otelleri ve konaklama bölgelerine uzanan rotayı inceleyin.",
+        cta: "Belek rotasını görüntüle",
+      },
+      {
+        routePath: "/antalya-airport-to-side",
+        title: "Varış noktanız sahilin ilerisindeki Side mi?",
+        description:
+          "Side'nin antik merkezi, otel bölgeleri ve yakın Akdeniz plajlarına ulaşım rotasını inceleyin.",
+        cta: "Side rotasını görüntüle",
+      },
+    ],
     finalTitle: "Antalya'ya, Lara yolculuğunuzu planlamış olarak inin.",
     finalDescription:
       "Seyahat bilgilerinizi bir kez paylaşın, açık fiyatlı yerel teklifleri karşılaştırın ve size uygun sürücüyü seçin.",
@@ -260,7 +296,6 @@ export default async function AntalyaAirportToLaraPage({
       destination="Lara"
       serviceType="Private airport transfer from Antalya Airport to Lara"
       content={copy[locale]}
-      relatedRoutePath="/antalya-airport-to-belek"
     />
   );
 }

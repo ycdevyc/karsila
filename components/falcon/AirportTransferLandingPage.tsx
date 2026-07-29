@@ -27,6 +27,13 @@ type Faq = {
   answer: string;
 };
 
+type RelatedRoute = {
+  routePath: string;
+  title: string;
+  description: string;
+  cta: string;
+};
+
 export type AirportTransferLandingCopy = {
   title: string;
   description: string;
@@ -51,9 +58,7 @@ export type AirportTransferLandingCopy = {
   faqTitle: string;
   faqs: [Faq, Faq, Faq];
   relatedLabel: string;
-  relatedTitle: string;
-  relatedDescription: string;
-  relatedCta: string;
+  relatedRoutes: [RelatedRoute, RelatedRoute];
   finalTitle: string;
   finalDescription: string;
   footer: string;
@@ -65,7 +70,6 @@ type AirportTransferLandingPageProps = {
   destination: string;
   serviceType: string;
   content: AirportTransferLandingCopy;
-  relatedRoutePath: string;
 };
 
 export function buildAirportTransferMetadata(
@@ -106,12 +110,10 @@ export function AirportTransferLandingPage({
   destination,
   serviceType,
   content,
-  relatedRoutePath,
 }: AirportTransferLandingPageProps) {
   const requestLocale = locale === "tr" ? "en" : locale;
   const requestHref = `${publicPath(requestLocale, "/request")}?pickup=Antalya%20Airport&destination=${encodeURIComponent(destination)}`;
   const pageUrl = `${siteUrl}${publicPath(locale, routePath)}`;
-  const relatedHref = publicPath(locale, relatedRoutePath);
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -277,23 +279,30 @@ export function AirportTransferLandingPage({
       </section>
 
       <section className="px-5 pb-20 sm:px-6 md:pb-28 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-6 rounded-[2rem] border border-border/65 bg-card/85 p-7 shadow-[var(--falcon-shadow-sm)] sm:p-9 md:grid-cols-[1fr_auto] md:items-center">
-          <div>
-            <p className="falcon-section-label">{content.relatedLabel}</p>
-            <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.035em]">
-              {content.relatedTitle}
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
-              {content.relatedDescription}
-            </p>
+        <div className="mx-auto max-w-7xl">
+          <p className="falcon-section-label">{content.relatedLabel}</p>
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            {content.relatedRoutes.map((relatedRoute) => (
+              <article
+                key={relatedRoute.routePath}
+                className="flex flex-col rounded-[2rem] border border-border/65 bg-card/85 p-7 shadow-[var(--falcon-shadow-sm)] sm:p-9"
+              >
+                <h2 className="text-2xl font-extrabold tracking-[-0.035em]">
+                  {relatedRoute.title}
+                </h2>
+                <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">
+                  {relatedRoute.description}
+                </p>
+                <Link
+                  href={publicPath(locale, relatedRoute.routePath)}
+                  className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-2xl border border-border px-5 py-3 text-sm font-bold transition hover:border-foreground/30"
+                >
+                  {relatedRoute.cta}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+            ))}
           </div>
-          <Link
-            href={relatedHref}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-border px-5 py-3 text-sm font-bold transition hover:border-foreground/30"
-          >
-            {content.relatedCta}
-            <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
       </section>
 

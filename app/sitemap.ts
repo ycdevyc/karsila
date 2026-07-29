@@ -7,6 +7,7 @@ const routePages = [
   "",
   "/antalya-airport-to-belek",
   "/antalya-airport-to-lara",
+  "/antalya-airport-to-side",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
