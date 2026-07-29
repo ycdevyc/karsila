@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://karsila.app"),
+  metadataBase: new URL("https://www.karsila.app"),
 
   title: {
     default: "Karsila",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     siteName: "Karsila",
-    url: "https://karsila.app",
+    url: "https://www.karsila.app",
   },
 
   icons: {

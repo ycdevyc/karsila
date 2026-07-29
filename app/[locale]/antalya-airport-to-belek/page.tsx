@@ -274,7 +274,7 @@ export default async function AntalyaAirportToBelekPage({
   const content = copy[locale];
   const requestLocale = locale === "tr" ? "en" : locale;
   const requestHref = `${publicPath(requestLocale, "/request")}?pickup=Antalya%20Airport&destination=Belek`;
-  const pageUrl = `https://karsila.app${publicPath(locale, routePath)}`;
+  const pageUrl = `https://www.karsila.app${publicPath(locale, routePath)}`;
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -296,7 +296,7 @@ export default async function AntalyaAirportToBelekPage({
     provider: {
       "@type": "Organization",
       name: "Karsila",
-      url: "https://karsila.app",
+      url: "https://www.karsila.app",
     },
     areaServed: [
       { "@type": "City", name: "Antalya" },

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { publicLocales } from "@/lib/i18n/public";
 
-const siteUrl = "https://karsila.app";
+const siteUrl = "https://www.karsila.app";
 const routePages = ["", "/antalya-airport-to-belek"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
